@@ -1,0 +1,224 @@
+    /*Variables*/
+    :root {
+        --primary: #3d3d50;
+        --secondary: #31fa9f;
+        --light: #ebebeb;
+        --dark: #333;
+        --gray: #bebece;
+        --hover: all .4s ease;
+    }
+
+    /*Global*/
+    ::selection {
+        background: var(--secondary);
+        color: var(--light);
+    }
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background: url('https://uicookies.com/demo/theme/resumex/img/pattern-bg.png');
+        background-attachment: fixed;
+        min-height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat';
+        font-size: 15px;
+        line-height: 1.8em;
+        color: var(--primary);
+        overflow-x: hidden;
+    }
+    a{
+        text-decoration: none;
+        color: var(--primary);
+    }
+    p {
+        opacity: .9;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+    }
+    section {
+        padding: clamp(0.5rem,2vw,2rem);
+        margin: 0 1rem;
+        border-bottom: 1px solid var(--light);
+    }
+    .sec__title {
+        font-size: 1.15rem;
+        margin-bottom: 1rem;
+        color: var(--gray);
+    }
+
+    [class*="__item"] {
+        margin-top: 1.5rem;
+    }
+
+    /*Layout Grid*/
+    
+    .container {
+        width: 100%;
+        max-width: 1180px;
+        padding: 0 1rem;
+        margin: 60px auto;
+    }
+    .grid {
+        display: grid;
+        gap: 1rem;
+    }
+
+    /* Sidebar */
+    
+    .sidebar {
+        position: relative;
+    }
+    .profile{
+        position: sticky!important;
+        top: 0;
+        height: calc(100vh - 10px);
+        padding:0 2rem;
+        overflow-y: auto;
+    }
+    .profile::-webkit-scrollbar {
+        width: 2px;
+    }
+    .profile__header {
+        margin: 1rem 0;
+    }
+
+    .profile__links {
+        display: flex;
+    }
+    .profile__links a {
+        text-decoration: none;
+        height: 35px;
+        width: 35px;
+        margin-right: 1rem;
+        display: grid;
+        place-items: center;
+        font-size: 16px;
+        color: var(--dark);
+        border-radius: 2px;
+        border: 2px solid var(--light);
+        transition: var(--hover);
+    }
+    .profile__links a:hover {
+        color: var(--secondary);
+    }
+
+    /*Expertise Section*/
+
+    .expertise__item p{
+        font-size: 0.875rem;
+    }
+
+    /*Skillls Section*/
+    .progress__item h4 {
+        font-weight: normal;
+    }
+    .progress__bar {
+        position: relative;
+        border-radius: 4px;
+        height: 4px;
+    }
+    .progress {
+        position: absolute;
+        height: 100%;
+        background: var(--secondary);
+        z-index: 0;
+        border-radius: 4px;
+        text-align: right;
+        animation: fromZero ease-in-out 1s;
+    }
+    @keyframes fromZero {
+        from {
+            width: 0;
+        }
+    }
+    .progress__tooltip {
+        position: absolute;
+        top: -30px;
+        padding: 0 .26rem;
+        font-size: 12px;
+        background: var(--dark);
+        border-radius: 3px;
+        color: var(--light);
+    }
+    .progress__tooltip::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        border-top: 6px solid var(--dark);
+        border-right: 8px solid transparent;
+    }
+    
+    /*Portfolio Section*/
+    .product__img {
+        position: relative;
+        display: block;
+        text-decoration: none;
+        color: var(--light);
+    }
+    .product__img img {
+        width: 100%;
+    }
+    .product__img:hover .product__details {
+        opacity: 1;
+        pointer-events: all;
+    }
+    .product__img .product__details {
+        position: absolute;
+        bottom: .5rem;
+        left: .5rem;
+        background: linear-gradient(transparent,rgba(0, 0, 0, 0.5));
+        padding: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: all .4s;
+    }
+
+    /*Contact Form Section*/
+    input,textarea{
+        display: block;
+        width: 100%;
+        padding: 15px;
+        border: 1px solid var(--secondary);
+        outline: 0;
+    }
+    ::placeholder {
+        font-family: Montserrat;
+    }
+    button {
+        background: var(--secondary);
+        outline: none;
+        border: none;
+        padding: 13px 35px;
+        color: var(--light);
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: .3s;
+    }
+    button:hover {
+        opacity: .8;
+    }
+    footer p{
+        text-align: center;
+    }
+
+    /* Responsive */
+    @media (min-width:768px) {
+        .main.grid {
+            grid-template-columns: 1fr 2fr;
+        }
+        .col_2 {
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
